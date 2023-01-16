@@ -1,0 +1,33 @@
+version: '3'
+
+services:
+  db:
+    container_name: unit-testing-api-mysql
+    build:
+      context: etc/dev/mysql
+    volumes:
+      - "./dumps/doctorslot.sql:/docker-entrypoint-initdb.d/doctorslot.sql"
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: db
+      MYSQL_USER: user
+      MYSQL_PASSWORD: root
+      MYSQL_ROOT_HOST: '%'
+    ports:
+      - "3314:3306"
+  php:
+    container_name: unit-testing-api-app
+    build:
+      context: etc/dev/php8-fpm
+    volumes:
+      - .:/var/www/app
+      - ./logs:/var/logs
+
+  nginx:
+    container_name: unit-testing-api-nginx
+    build:
+      context: etc/dev/nginx
+    ports:
+      - "2137:80"
+    volumes:
+      - ./logs/nginx/:/var/log/nginx

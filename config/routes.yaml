@@ -1,0 +1,13 @@
+index:
+    path: /
+    controller: CodeChallenge\Infrastructure\Http\Controller\SiteController::status
+
+doctor:
+    path: api/doctors
+    controller: CodeChallenge\Infrastructure\Http\Controller\DoctorSlotsSynchronizerController::doctors
+    methods: [GET]
+
+slots:
+    path: api/doctors/{id}/slots
+    controller: CodeChallenge\Infrastructure\Http\Controller\DoctorSlotsSynchronizerController::slots
+    methods: [GET]

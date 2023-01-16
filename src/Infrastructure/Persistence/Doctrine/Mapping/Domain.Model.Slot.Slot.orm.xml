@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping"
+                  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                  xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping
+                          https://www.doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+    <entity name="CodeChallenge\Domain\Model\Slot\Slot" table="slot">
+        <id name="id" type="integer" column="id" />
+        <field name="doctorId" column="doctor_id" type="id"/>
+        <field name="start" column="start" type="string" length="300" nullable="false" />
+        <field name="end" column="end" type="string" length="300" nullable="false" />
+        <field name="createdAt" column="created_at" type="string" length="300" nullable="false" />
+    </entity>
+</doctrine-mapping>
